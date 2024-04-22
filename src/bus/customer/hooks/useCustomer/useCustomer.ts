@@ -32,6 +32,7 @@ export const useCustomer = () => {
     createAccount({
       variables: { input: account }
     });
+
     setValues(initialCustomerState);
   };
 
