@@ -14,7 +14,7 @@ export function Customer() {
 
   return (
     <>
-      <h2>Create Customer component</h2>
+      <h2>Registration</h2>
       <div>
         <input
           type="text"

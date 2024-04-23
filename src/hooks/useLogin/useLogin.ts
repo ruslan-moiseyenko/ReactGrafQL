@@ -1,31 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { loader } from "graphql.macro";
 
-const initialCustomerState = {
-  login: "",
-  password: ""
+type LoginType = {
+  login: string;
+  password: string;
 };
 
 const mutationLogin = loader("./gql/mutationLogIn.graphql");
 
-export const useLogin = () => {
-  const [values, setValues] = useState(initialCustomerState);
+export const useLogin = (values: LoginType) => {
   const [logIn, { data, error, loading }] = useMutation(mutationLogin);
 
   useEffect(() => {
-    if (data) {
+    if (data?.logIn) {
       localStorage.setItem("loginToken", JSON.stringify(data?.logIn.token));
     }
   }, [data]);
-
-  const handleChange = (event) => {
-    event.persist();
-    setValues((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value
-    }));
-  };
 
   const onLogin = () => {
     logIn({
@@ -37,8 +28,6 @@ export const useLogin = () => {
   };
 
   return {
-    values,
-    handleChange,
     onLogin,
     error,
     loading,

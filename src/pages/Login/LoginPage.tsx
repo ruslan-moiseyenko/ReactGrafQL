@@ -1,9 +1,16 @@
 import React from "react";
 import "./styles.css";
 import { useLogin } from "../../hooks/useLogin/useLogin.ts";
+import { useForm } from "../../hooks/useForm/useForm.ts";
+
+const initialFormState = {
+  login: "",
+  password: ""
+};
 
 export function LoginPage() {
-  const { values, handleChange, onLogin, error, loading } = useLogin();
+  const { values, handleChange } = useForm(initialFormState);
+  const { onLogin, error, loading } = useLogin(values);
 
   const errorMessage = !error ? null : (
     <p className="error">{`Error: ${error?.message}`}</p>
