@@ -1,5 +1,5 @@
 import React from 'react'
-import { useQueryAvailablePets } from '../../bus/pet/hooks/useQueryAvailablePets/index.ts';
+import { useQueryAvailablePets } from '../../hooks/useQueryAvailablePets.ts';
 
 export function Counter() {
   const { data, loading, error } = useQueryAvailablePets();

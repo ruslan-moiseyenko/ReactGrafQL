@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.css";
-import { useLogin } from "../../bus/auth/hooks/useLogin/useLogin.ts";
+import { useLogin } from "../../hooks/useLogin/useLogin.ts";
 
 export function LoginPage() {
   const { values, handleChange, onLogin, error, loading } = useLogin();

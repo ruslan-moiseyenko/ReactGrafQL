@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryAllCustomers } from "../../bus/customer/hooks/useQueryAllCustomers/useQueryAllCustomers.ts";
+import { useQueryAllCustomers } from "../../hooks/useQueryAllCustomers/useQueryAllCustomers.ts";
 
 export function CustomerList() {
   const { allCustomers, loading, error } = useQueryAllCustomers();
