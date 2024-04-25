@@ -12,9 +12,13 @@
     "apollo-boost": "^0.4.9",
     "graphql": "^16.8.1",
     "graphql.macro": "^1.4.2",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.1",
+    "sort-by": "^1.2.0",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -24,7 +28,6 @@
     "eject": "react-scripts eject",
     "codegen": "graphql-codegen --config codegen.ts",
     "generate": "graphql-codegen --config codegen.yml"
-
   },
   "eslintConfig": {
     "extends": [
@@ -47,10 +50,10 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@graphql-codegen/cli": "5.0.2",
+    "@graphql-codegen/client-preset": "4.2.5",
+    "@graphql-codegen/introspection": "4.0.3",
     "@graphql-codegen/typescript": "^4.0.6",
     "@graphql-codegen/typescript-resolvers": "^4.0.6",
-    "typescript": "^5.4.5",
-    "@graphql-codegen/introspection": "4.0.3",
-    "@graphql-codegen/client-preset": "4.2.5"
+    "typescript": "^5.4.5"
   }
 }

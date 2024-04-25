@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./styles.css";
+
 import { useLogin } from "../../hooks/useLogin/useLogin.ts";
 import { useForm } from "../../hooks/useForm/useForm.ts";
 
@@ -10,13 +13,24 @@ const initialFormState = {
 
 export function LoginPage() {
   const { values, handleChange } = useForm(initialFormState);
-  const { onLogin, error, loading } = useLogin(values);
+  const { onLogin, error, loading, authData } = useLogin(values);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (authData?.token) {
+      navigate("/customer");
+    }
+  }, [authData, navigate]);
 
   const errorMessage = !error ? null : (
     <p className="error">{`Error: ${error?.message}`}</p>
   );
 
   const loadingInProcess = loading ? <div>Loading...</div> : null;
+
+  const handleLogin = async () => {
+    await onLogin();
+  };
 
   return (
     <div className="container">
@@ -38,7 +52,7 @@ export function LoginPage() {
         />
         {loadingInProcess}
         {errorMessage}
-        <button onClick={onLogin}>Login</button>
+        <button onClick={handleLogin}>Login</button>
       </div>
     </div>
   );
