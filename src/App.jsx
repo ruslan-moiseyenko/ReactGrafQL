@@ -4,7 +4,7 @@ import './index.css'
 // import { PetProfile } from './components/Profile/PetProfile.tsx';
 import { LoginPage } from './pages/Login/LoginPage.tsx';
 
-function App() {
+export const App = () => {
 
   return (
 
@@ -17,4 +17,4 @@ function App() {
   );
 }
 
-export { App };
+
